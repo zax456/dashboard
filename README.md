@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
 Below you will find some information on how to perform common tasks.<br>
@@ -1247,3 +1248,7 @@ If you have ideas for more “How To” recipes that should be on this page, [le
 # analytics
 Analytics dashboard based on CoreUI, React, and Firebase
 >>>>>>> 59c256862024fe1ee373a28a7b2627fdbc13bfb8
+=======
+# analytics-dashboard
+Analytics dashboard designed to load content from local json files and a firebase project. 
+>>>>>>> 29e79bfd38f0e1112e0f78c1705d6f770099075d
