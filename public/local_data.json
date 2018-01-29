@@ -2,14 +2,14 @@
     "greeting":"Hello from local_data.json.",
     "charts":{
         "One":{
-            "title":"Local Data Line Chart 1",
+            "title":"One more title",
             "chartType":"Line",
             "data":{
                 "chartType": true,
                 "labels": ["January", "February", "March", "April", "May", "June", "July"],
                 "datasets": [
                     {
-                    "label": "My First dataset",
+                    "label": "My Awesome First dataset",
                     "fill": false,
                     "lineTension": 0.1,
                     "backgroundColor": "rgba(75,192,192,0.4)",
