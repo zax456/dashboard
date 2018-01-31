@@ -11,8 +11,17 @@ import 'simple-line-icons/css/simple-line-icons.css';
 import '../scss/style.scss'
 // Temp fix for reactstrap
 import '../scss/core/_dropdown-menu-right.scss'
-import local_data from '../public/local_data.json'
-console.log(local_data.greeting);
+
+//Import from local
+//import local_data from '../public/local_data.json'
+//console.log(local_data.greeting);
+
+//Import from firebase
+import * as firebase from 'firebase';
+var database = firebase.database();
+return database.ref('/data').once('value').then(function(snapshot) {
+  var local_data = (snapshot.val());
+});
 
 // Containers
 import Full from './containers/Full/'
