@@ -33,10 +33,10 @@ import '../scss/core/_dropdown-menu-right.scss'
 
 var local_data = {}
 import firebase from 'firebase';
-firebase.database().ref('/').once('value')
-    .then(snapshot => {
-   local_data = snapshot.val()
-  })
+var db = firebase.database().ref('/');
+db.on('value',function(snapshot){
+   local_data = snapshot.val();
+});
 
 // var database = firebase.database();
 // database.ref('/data').once('value').then(function(snapshot) {
