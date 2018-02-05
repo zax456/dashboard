@@ -36,6 +36,8 @@ import firebase from 'firebase';
 var db = firebase.database().ref('/');
 db.on('value',function(snapshot){
    local_data = snapshot.val();
+   console.log(snapshot.val());
+   
 });
 
 // var database = firebase.database();
@@ -51,7 +53,7 @@ import Login from './views/Pages/Login/'
 import Register from './views/Pages/Register/'
 import Page404 from './views/Pages/Page404/'
 import Page500 from './views/Pages/Page500/'
-
+window.location.reload();
 ReactDOM.render((
   <HashRouter>
     <Switch>
