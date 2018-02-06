@@ -23,13 +23,46 @@ import Tabs from '../../views/Components/Tabs/';
 // Icons
 import FontAwesome from '../../views/Icons/FontAwesome/';
 import SimpleLineIcons from '../../views/Icons/SimpleLineIcons/';
+import * as firebase from 'firebase';
+
+var config = {
+    apiKey: "AIzaSyBPweAHcP4em0PYh8XWzEqjNhTk3OBNS5I",
+    authDomain: "dashboard-dev-8b843.firebaseapp.com",
+    databaseURL: "https://dashboard-dev-8b843.firebaseio.com",
+    projectId: "dashboard-dev-8b843",
+    storageBucket: "dashboard-dev-8b843.appspot.com",
+    messagingSenderId: "264557605189"
+  };
+firebase.initializeApp(config);
+
+
+
 
 class Full extends Component {
   constructor(props) {
     super(props);
     //Change this to be an object to iterate.
     console.log("In Full.js ->",props.local_data.greeting);
+    this.state = {};
   }
+
+  componentWillMount(){
+    /* Create reference to messages in Firebase Database */
+    let db = firebase.database().ref('/');    
+    db.on('value', snapshot => {
+      /* Update React state when message is added at Firebase Database */
+      let locData = snapshot.val();
+      this.setState(locData);
+    })
+  }
+
+  // setState(props){
+    
+  //   db.on('value',function(snapshot){
+  //   this.state = snapshot.val();
+  //   // fb.setState(local_data)
+  //   });
+  // }
 
   render() {
     return (
@@ -54,7 +87,7 @@ class Full extends Component {
                 <Route path="/icons/simple-line-icons" name="Simple Line Icons" component={SimpleLineIcons}/>
                 <Route path="/widgets" name="Widgets" component={Widgets}/>
                 <Route path="/charts_original" name="Charts" component={Charts} />
-                <Route path="/charts" name="Charts" render={props => <Charts local_data={this.props.local_data} {...props} />} />
+                <Route path="/charts" name="Charts" render={props => <Charts local_data={this.state} {...props} />} />
               
                 <Redirect from="/" to="/dashboard"/>
               </Switch>

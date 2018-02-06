@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {HashRouter, Route, Switch} from 'react-router-dom';
-
+import firebase from 'firebase';
 // Styles
 // Import Font Awesome Icons Set
 import 'font-awesome/css/font-awesome.min.css';
@@ -20,24 +20,15 @@ import '../scss/core/_dropdown-menu-right.scss'
 
 // Initialize Firebase
 // TODO: Replace with your project's customized code snippet
- var config = {
-    apiKey: "AIzaSyBPweAHcP4em0PYh8XWzEqjNhTk3OBNS5I",
-    authDomain: "dashboard-dev-8b843.firebaseapp.com",
-    databaseURL: "https://dashboard-dev-8b843.firebaseio.com",
-    projectId: "dashboard-dev-8b843",
-    storageBucket: "dashboard-dev-8b843.appspot.com",
-    messagingSenderId: "264557605189"
-  };
-  firebase.initializeApp(config);
+ 
 
-
+  
 var local_data = {}
-import firebase from 'firebase';
+
 var db = firebase.database().ref('/');
 db.on('value',function(snapshot){
    local_data = snapshot.val();
-   console.log(snapshot.val());
-   
+   // fb.setState(local_data)
 });
 
 // var database = firebase.database();
@@ -55,6 +46,7 @@ import Page404 from './views/Pages/Page404/'
 import Page500 from './views/Pages/Page500/'
 window.location.reload();
 ReactDOM.render((
+  <div>
   <HashRouter>
     <Switch>
       <Route exact path="/login" name="Login Page" component={Login}/>
@@ -62,7 +54,9 @@ ReactDOM.render((
       <Route exact path="/404" name="Page 404" component={Page404}/>
       <Route exact path="/500" name="Page 500" component={Page500}/>
       <Route path="/original" name="Home" component={Full} sample={local_data}/>
-      <Route path="/" name="Home" render={props => <Full local_data={local_data} {...props} />} />
+    //  <Route path="/" name="Home" render={props => <Full local_data={local_data} {...props} />} />
+      <Route path="/" name="Home" render={props => <Full local_data= {local_data} />} />
     </Switch>
   </HashRouter>
+  </div>
 ), document.getElementById('root'));
