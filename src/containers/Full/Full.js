@@ -42,19 +42,22 @@ class Full extends Component {
   constructor(props) {
     super(props);
     //Change this to be an object to iterate.
-    console.log("In Full.js ->",props.local_data.greeting);
+    //console.log("In Full.js ->",props.local_data.greeting);
     this.state = {};
   }
 
   componentWillMount(){
     /* Create reference to messages in Firebase Database */
     let db = firebase.database().ref('/');    
-    db.off();
+    //db.off();
     db.on('value', snapshot => {
       /* Update React state when message is added at Firebase Database */
+      
       let locData = snapshot.val();
-      //this.setState(locData);
-      this.state = locData;
+      this.setState(locData);
+      console.log('inside mount');
+      this.forceUpdate();
+      //this.state = locData;
     })
   }
 
@@ -77,6 +80,7 @@ class Full extends Component {
             <Container fluid>
               <Switch>
                 <Route path="/dashboard" name="Dashboard" component={Dashboard}/>
+                // <Route path="/dashboard" name="Dashboard" render={props => <Charts local_data={this.state} {...props} />} />
                 <Route path="/components/buttons" name="Buttons" component={Buttons}/>
                 <Route path="/components/cards" name="Cards" component={Cards}/>
                 <Route path="/components/forms" name="Forms" component={Forms}/>
@@ -90,7 +94,7 @@ class Full extends Component {
                 <Route path="/widgets" name="Widgets" component={Widgets}/>
                 <Route path="/charts_original" name="Charts" component={Charts} />
                 <Route path="/charts" name="Charts" render={props => <Charts local_data={this.state} {...props} />} />
-              
+                
                 <Redirect from="/" to="/dashboard"/>
               </Switch>
             </Container>

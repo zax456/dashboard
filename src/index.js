@@ -47,7 +47,7 @@ import Page500 from './views/Pages/Page500/'
 
 var local_data = {}
 
-window.location.reload();
+//window.location.reload();
 ReactDOM.render((
   <div>
   <HashRouter>
@@ -57,8 +57,9 @@ ReactDOM.render((
       <Route exact path="/404" name="Page 404" component={Page404}/>
       <Route exact path="/500" name="Page 500" component={Page500}/>
       <Route path="/original" name="Home" component={Full} sample={local_data}/>
-    //  <Route path="/" name="Home" render={props => <Full local_data={local_data} {...props} />} />
-      <Route path="/" name="Home" render={props => <Full local_data= {local_data} />} />
+      // <Route path="/" name="Home" component={Full} sample={local_data}/>
+      <Route path="/" name="Home" render={props => <Full local_data={local_data} {...props} />} />
+    //  <Route path="/" name="Home" render={props => <Full local_data= {local_data} />} />
     </Switch>
   </HashRouter>
   </div>
