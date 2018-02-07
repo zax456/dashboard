@@ -23,13 +23,13 @@ import '../scss/core/_dropdown-menu-right.scss'
  
 
   
-var local_data = {}
 
-var db = firebase.database().ref('/');
-db.on('value',function(snapshot){
-   local_data = snapshot.val();
-   // fb.setState(local_data)
-});
+
+// var db = firebase.database().ref('/');
+// db.on('value',function(snapshot){
+//    local_data = snapshot.val();
+//    // fb.setState(local_data)
+// });
 
 // var database = firebase.database();
 // database.ref('/data').once('value').then(function(snapshot) {
@@ -44,6 +44,9 @@ import Login from './views/Pages/Login/'
 import Register from './views/Pages/Register/'
 import Page404 from './views/Pages/Page404/'
 import Page500 from './views/Pages/Page500/'
+
+var local_data = {}
+
 window.location.reload();
 ReactDOM.render((
   <div>

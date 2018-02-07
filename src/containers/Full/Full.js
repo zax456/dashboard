@@ -49,10 +49,12 @@ class Full extends Component {
   componentWillMount(){
     /* Create reference to messages in Firebase Database */
     let db = firebase.database().ref('/');    
+    db.off();
     db.on('value', snapshot => {
       /* Update React state when message is added at Firebase Database */
       let locData = snapshot.val();
-      this.setState(locData);
+      //this.setState(locData);
+      this.state = locData;
     })
   }
 
