@@ -49,16 +49,18 @@ class Full extends Component {
   componentWillMount(){
     /* Create reference to messages in Firebase Database */
     let db = firebase.database().ref('/');    
-    //db.off();
+    db.off();
     db.on('value', snapshot => {
       /* Update React state when message is added at Firebase Database */
       
       let locData = snapshot.val();
       this.setState(locData);
-      console.log('inside mount');
+      console.log(locData);
       this.forceUpdate();
       //this.state = locData;
     })
+
+  // db.on('value', snapshot => this.setState(snapshot.val()))
   }
 
   // setState(props){
@@ -79,6 +81,7 @@ class Full extends Component {
             <Breadcrumb />
             <Container fluid>
               <Switch>
+                <Route path="/charts" name="Charts" children={props => <Charts local_data={this.state} {...props} />} />
                 <Route path="/dashboard" name="Dashboard" component={Dashboard}/>
                 // <Route path="/dashboard" name="Dashboard" render={props => <Charts local_data={this.state} {...props} />} />
                 <Route path="/components/buttons" name="Buttons" component={Buttons}/>
@@ -93,10 +96,10 @@ class Full extends Component {
                 <Route path="/icons/simple-line-icons" name="Simple Line Icons" component={SimpleLineIcons}/>
                 <Route path="/widgets" name="Widgets" component={Widgets}/>
                 <Route path="/charts_original" name="Charts" component={Charts} />
-                <Route path="/charts" name="Charts" render={props => <Charts local_data={this.state} {...props} />} />
+                
                 
                 <Redirect from="/" to="/dashboard"/>
-              </Switch>
+            </Switch>
             </Container>
           </main>
           <Aside />

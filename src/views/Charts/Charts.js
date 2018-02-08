@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {Bar, Doughnut, Line, Pie, Polar, Radar} from 'react-chartjs-2';
 import {CardColumns, Card, CardHeader, CardBody} from 'reactstrap';
+import * as firebase from 'firebase';
 
 const myCharts = {
   line1 :{
@@ -232,9 +233,22 @@ class Charts extends Component {
   constructor(props) {
     super(props);
     //Change this to be an object to iterate.
-
-      console.log("In Charts.js ->",props.local_data.greeting);
+    this.state = {isLoggedIn: false};
+    // var local_data = {};
+    // let db = firebase.database().ref('/');    
+    // db.off();
+    // db.on('value', snapshot => {
+    //   /* Update React state when message is added at Firebase Database */
+    //   console.log('inside mount from charts');
+    //   local_data = snapshot.val();
+    //   //this.setState(locData);
+    //   // props.local_data = locData;
+      
+      
+    //   //this.state = locData;
+    // })
     
+    console.log("In Charts.js ->",props.local_data.greeting);
     //Change this to be an object to iterate.
     //Then put data in locally rather than from variables. 
     //Then move to local_data and get from props. 
@@ -261,7 +275,7 @@ class Charts extends Component {
    });  
    */         
    
-    this.state = {isLoggedIn: false};
+    
   }
   render() {
     return (
