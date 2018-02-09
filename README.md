@@ -1,4 +1,5 @@
-# Installation
+# Installation 
+
 1. Clone github repository into local folder
 2. Navigate to `src/containers/Full/Full.js` and change the configuration to reflect your own firebase project. 
 ```javascript
