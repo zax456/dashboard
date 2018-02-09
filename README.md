@@ -15,7 +15,7 @@ var config = {
 ```
 3. Import `public/local_data.json` into your firebase database and store it directly in the root node. 
 4. To host locally run `yarn` to build the dependencies then `yarn start` to start hosting locally. 
-5. Navigate to root of the app and execute `firebase deploy` to deploy to firebase
+5. Navigate to root of the app and execute `yarn build` then `firebase deploy` to deploy to firebase
 ## Available Scripts
 
 In the project directory, you can run:
