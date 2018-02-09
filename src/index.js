@@ -12,30 +12,6 @@ import '../scss/style.scss'
 // Temp fix for reactstrap
 import '../scss/core/_dropdown-menu-right.scss'
 
-//Import from local
-//import local_data from '../public/local_data.json'
-//console.log(local_data.greeting);
-
-//Import from firebase
-
-// Initialize Firebase
-// TODO: Replace with your project's customized code snippet
- 
-
-  
-
-
-// var db = firebase.database().ref('/');
-// db.on('value',function(snapshot){
-//    local_data = snapshot.val();
-//    // fb.setState(local_data)
-// });
-
-// var database = firebase.database();
-// database.ref('/data').once('value').then(function(snapshot) {
-//   var local_data = (snapshot.val());
-// });
-
 // Containers
 import Full from './containers/Full/'
 

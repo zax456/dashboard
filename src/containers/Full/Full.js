@@ -25,6 +25,9 @@ import FontAwesome from '../../views/Icons/FontAwesome/';
 import SimpleLineIcons from '../../views/Icons/SimpleLineIcons/';
 import * as firebase from 'firebase';
 
+// Initialize Firebase
+// TODO: Replace with your project's customized code snippet
+
 var config = {
     apiKey: "AIzaSyBPweAHcP4em0PYh8XWzEqjNhTk3OBNS5I",
     authDomain: "dashboard-dev-8b843.firebaseapp.com",
@@ -36,13 +39,9 @@ var config = {
 firebase.initializeApp(config);
 
 
-
-
 class Full extends Component {
   constructor(props) {
     super(props);
-    //Change this to be an object to iterate.
-    //console.log("In Full.js ->",props.local_data.greeting);
     this.state = {};
   }
 
@@ -59,17 +58,7 @@ class Full extends Component {
       this.forceUpdate();
       //this.state = locData;
     })
-
-  // db.on('value', snapshot => this.setState(snapshot.val()))
   }
-
-  // setState(props){
-    
-  //   db.on('value',function(snapshot){
-  //   this.state = snapshot.val();
-  //   // fb.setState(local_data)
-  //   });
-  // }
 
   render() {
     return (
