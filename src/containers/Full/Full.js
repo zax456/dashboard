@@ -29,13 +29,13 @@ import * as firebase from 'firebase';
 // TODO: Replace with your project's customized code snippet
 
 var config = {
-    apiKey: "AIzaSyBtMRr70s5oHD8FIpzEwfXw4-pXKuLIZaU",
-    authDomain: "bt3103-dashboard.firebaseapp.com",
-    databaseURL: "https://bt3103-dashboard.firebaseio.com",
-    projectId: "bt3103-dashboard",
-    storageBucket: "bt3103-dashboard.appspot.com",
-    messagingSenderId: "850800858568"
-  };
+  apiKey: "AIzaSyBtMRr70s5oHD8FIpzEwfXw4-pXKuLIZaU",
+  authDomain: "bt3103-dashboard.firebaseapp.com",
+  databaseURL: "https://bt3103-dashboard.firebaseio.com",
+  projectId: "bt3103-dashboard",
+  storageBucket: "bt3103-dashboard.appspot.com",
+  messagingSenderId: "850800858568"
+};
 firebase.initializeApp(config);
 
 
